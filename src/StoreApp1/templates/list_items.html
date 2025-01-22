@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list items</title>
+</head>
+<body>
+{% for instance in queryset %}
+{{ instance.item_name }} : {{ instance.quantity }}<br>
+{% endfor %}
+</body>
+</html>
