@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Store(models.Model):
+class Stock(models.Model):
     category = models.CharField(max_length=50, blank=True, null=True)
     item_name = models.CharField(max_length=50, blank=True, null=True)
     quantity = models.IntegerField(default=0, blank=True, null=True)
@@ -14,4 +14,7 @@ class Store(models.Model):
     created_by = models.IntegerField(blank=True, null=True)
     reorder_level = models.IntegerField(default=0, blank=True, null=True)
     last_updated = models.DateTimeField(auto_now=False, auto_now_add=True)
-    export_to_CSV = models.Boolea
+    export_to_CSV = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.item_name + ' ' + str(self.quantity)
